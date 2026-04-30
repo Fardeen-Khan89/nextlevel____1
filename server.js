@@ -1,26 +1,16 @@
 const express = require('express');
 const app = express();
-
-app.use(express.json());
+const path=require('path');
 
 // Home route
 app.get('/', (req, res) => {
-  res.send('API is running 🚀');
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Sample API
 app.get('/api/data', (req, res) => {
   res.json({
-    name: "Sadan",
     message: "Hello from API 👋"
-  });
-});
-
-// POST API
-app.post('/api/data', (req, res) => {
-  const data = req.body;
-  res.json({
-    received: data
   });
 });
 
